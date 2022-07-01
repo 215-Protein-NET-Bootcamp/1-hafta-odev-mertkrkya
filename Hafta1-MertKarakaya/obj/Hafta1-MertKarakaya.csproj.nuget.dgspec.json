@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\karak\\source\\repos\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj": {}
+    "C:\\Users\\karak\\Documents\\GitHub\\1-hafta-odev-mertkrkya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj": {}
   },
   "projects": {
-    "C:\\Users\\karak\\source\\repos\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj": {
+    "C:\\Users\\karak\\Documents\\GitHub\\1-hafta-odev-mertkrkya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karak\\source\\repos\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj",
+        "projectUniqueName": "C:\\Users\\karak\\Documents\\GitHub\\1-hafta-odev-mertkrkya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj",
         "projectName": "Hafta1-MertKarakaya",
-        "projectPath": "C:\\Users\\karak\\source\\repos\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj",
+        "projectPath": "C:\\Users\\karak\\Documents\\GitHub\\1-hafta-odev-mertkrkya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj",
         "packagesPath": "C:\\Users\\karak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karak\\source\\repos\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya\\obj\\",
+        "outputPath": "C:\\Users\\karak\\Documents\\GitHub\\1-hafta-odev-mertkrkya\\Hafta1-MertKarakaya\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\karak\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

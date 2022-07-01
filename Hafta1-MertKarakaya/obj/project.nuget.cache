@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "8X255s/rD1jarU+536yy0hrAyeWUD1JDpiig/d4W4Kqx3SpfP2q4NhJkRMz00/wmbxyd3fvD1n6lufnw+APVoQ==",
+  "dgSpecHash": "LHOcL36Ch6oGuj3H/RKp5y20z4pEl41+3L/JiofgRtMUin0EfXq9+676OcLtShxNcV813pStloGnekUjNMOe0g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\karak\\source\\repos\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\karak\\Documents\\GitHub\\1-hafta-odev-mertkrkya\\Hafta1-MertKarakaya\\Hafta1-MertKarakaya.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\karak\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\karak\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\karak\\.nuget\\packages\\swashbuckle.aspnetcore\\6.3.1\\swashbuckle.aspnetcore.6.3.1.nupkg.sha512",
+    "C:\\Users\\karak\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.3.1\\swashbuckle.aspnetcore.swagger.6.3.1.nupkg.sha512",
+    "C:\\Users\\karak\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.3.1\\swashbuckle.aspnetcore.swaggergen.6.3.1.nupkg.sha512",
+    "C:\\Users\\karak\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.3.1\\swashbuckle.aspnetcore.swaggerui.6.3.1.nupkg.sha512"
+  ],
   "logs": []
 }

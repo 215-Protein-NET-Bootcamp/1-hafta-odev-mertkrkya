@@ -7,7 +7,7 @@ namespace Hafta1_MertKarakaya.Entities
 {
     public class MainRequest
     {
-        public int vadeTutari { get; set; }
-        public long krediTutari { get; set; }
+        public string vadeMiktari { get; set; }
+        public string anaPara { get; set; }
     }
 }
