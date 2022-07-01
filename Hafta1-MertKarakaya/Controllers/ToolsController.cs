@@ -28,7 +28,7 @@ namespace Hafta1_MertKarakaya.Controllers
             if (!calcValue.success)
                 return BadRequest(calcValue);
             else
-                return Ok(new Response(calcValue));
+                return Ok(calcValue);
         }
         [HttpPost]
         [Route("OdemePlani")]

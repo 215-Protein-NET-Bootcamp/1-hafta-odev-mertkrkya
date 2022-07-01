@@ -17,8 +17,20 @@ namespace Hafta1_MertKarakaya.Helpers
                 return new Response(errorMessage: "Sistemde bir hata meydana gelmiştir.");
             }
             var faizOrani = GlobalConfigurations.FaizOrani / 100;
-            tutar.odenecekFaizTutari = faizOrani * vadeTutari * istenilenMiktar;
-            tutar.geriOdenecektoplamTutar = tutar.odenecekFaizTutari + istenilenMiktar;
+            var baslangicMiktari = istenilenMiktar;
+            int count = 0;
+            double odenecekFaizTutari = 0;
+            var aylikTutar = AylikTaksitHesapla(faizOrani, istenilenMiktar, vadeTutari);
+            while (count<vadeTutari)
+            {
+                var aylikFaiz = istenilenMiktar * faizOrani;
+                var anaparatutari = aylikTutar - aylikFaiz;
+                odenecekFaizTutari += aylikFaiz;
+                istenilenMiktar -= anaparatutari;
+                count++;
+            }
+            tutar.odenecekFaizTutari = odenecekFaizTutari;
+            tutar.geriOdenecektoplamTutar = tutar.odenecekFaizTutari + baslangicMiktari;
             return new Response(data : tutar);
         }
         public static Response OdemePlaniOlustur(int vadeTutari, double istenilenMiktar)
@@ -35,21 +47,29 @@ namespace Hafta1_MertKarakaya.Helpers
             odemePlani.odenecekFaizTutari = tutar.odenecekFaizTutari;
             odemePlani.FaizOrani = GlobalConfigurations.FaizOrani;
             odemePlani.OdemeTablosu = new List<OdemeTablosuData>();
-            var aylikTutar = AylikTaksitHesapla(faizOrani, istenilenMiktar, vadeTutari);
-            var kacAy = (int)odemePlani.geriOdenecektoplamTutar / aylikTutar;
+            var aylikTutar = odemePlani.geriOdenecektoplamTutar / vadeTutari;
+            aylikTutar = Math.Round(aylikTutar, 2);
+            double kalanTutar = 0;
+            if(odemePlani.geriOdenecektoplamTutar - (aylikTutar * vadeTutari) > 0)
+                kalanTutar = odemePlani.geriOdenecektoplamTutar - (aylikTutar * vadeTutari);
+            var geriOdenecekTutar = odemePlani.geriOdenecektoplamTutar;
             int ayCount = 1;
             while(ayCount <= vadeTutari)
             {
                 var odemeTablosuData = new OdemeTablosuData();
-                var aylikFaiz = istenilenMiktar * faizOrani;
+                var aylikFaiz = geriOdenecekTutar * faizOrani;
+                if(vadeTutari -1 == ayCount)
+                    aylikTutar += kalanTutar;
                 odemeTablosuData.Taksit = ayCount;
-                odemeTablosuData.FaizTutari = aylikFaiz;
-                odemeTablosuData.AnaParaTutari = aylikTutar - aylikFaiz;
+                odemeTablosuData.FaizTutari = Math.Round(aylikFaiz,2);
+                odemeTablosuData.AnaParaTutari = Math.Round(aylikTutar - aylikFaiz,2);
                 odemeTablosuData.TaksitTutari = aylikTutar;
                 istenilenMiktar = istenilenMiktar - aylikTutar;
-                odemeTablosuData.KalanAnaParaTutari = istenilenMiktar;
+                geriOdenecekTutar -= aylikTutar;
+                if (geriOdenecekTutar < 0 && geriOdenecekTutar > -1)
+                    geriOdenecekTutar = 0; //Virgülden meydana gelen hataların 0'lanması için.
+                odemeTablosuData.KalanTutar = Math.Round(geriOdenecekTutar,2);
                 odemePlani.OdemeTablosu.Add(odemeTablosuData);
-                kacAy--;
                 ayCount++;
             }
             return new Response(data: odemePlani);

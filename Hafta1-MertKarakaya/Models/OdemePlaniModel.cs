@@ -16,6 +16,6 @@ namespace Hafta1_MertKarakaya.Models
         public double TaksitTutari { get; set; }
         public double AnaParaTutari { get; set; }
         public double FaizTutari { get; set; }
-        public double KalanAnaParaTutari { get; set; }
+        public double KalanTutar { get; set; }
     }
 }
