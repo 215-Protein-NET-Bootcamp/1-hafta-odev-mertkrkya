@@ -12,7 +12,8 @@ namespace Hafta1_MertKarakaya.Helpers
         {
             int vadeMiktari;
             double anaPara;
-            request.anaPara = clearDotandCommainString(request.anaPara);
+            if(!string.IsNullOrWhiteSpace(request.anaPara))
+                request.anaPara = clearDotandCommainString(request.anaPara);
             if (string.IsNullOrWhiteSpace(request.vadeMiktari) && string.IsNullOrWhiteSpace(request.anaPara))
             {
                 return "Vade Miktari ve Ana Para değeri boş bırakılamaz.";
