@@ -22,8 +22,9 @@ namespace Hafta1_MertKarakaya.Controllers
             {
                 return BadRequest(new Response(errorMessage: errMsg));
             }
+            var anaParastr = Validator.clearDotandCommainString(request.anaPara);
             var vadeMiktari = int.Parse(request.vadeMiktari);
-            var anaPara = double.Parse(request.anaPara);
+            var anaPara = double.Parse(anaParastr);
             var calcValue = CalcAlgorithm.FaizHesapla(vadeMiktari, anaPara);
             if (!calcValue.success)
                 return BadRequest(calcValue);
@@ -39,8 +40,9 @@ namespace Hafta1_MertKarakaya.Controllers
             {
                 return BadRequest(new Response(errorMessage: errMsg));
             }
+            var anaParastr = Validator.clearDotandCommainString(request.anaPara);
             var vadeMiktari = int.Parse(request.vadeMiktari);
-            var anaPara = double.Parse(request.anaPara);
+            var anaPara = double.Parse(anaParastr);
             var calcValue = CalcAlgorithm.OdemePlaniOlustur(vadeMiktari, anaPara);
             if (!calcValue.success)
                 return BadRequest(calcValue);

@@ -12,7 +12,8 @@ namespace Hafta1_MertKarakaya.Helpers
         {
             int vadeMiktari;
             double anaPara;
-            if(string.IsNullOrWhiteSpace(request.vadeMiktari) && string.IsNullOrWhiteSpace(request.anaPara))
+            request.anaPara = clearDotandCommainString(request.anaPara);
+            if (string.IsNullOrWhiteSpace(request.vadeMiktari) && string.IsNullOrWhiteSpace(request.anaPara))
             {
                 return "Vade Miktari ve Ana Para değeri boş bırakılamaz.";
             }
@@ -36,6 +37,12 @@ namespace Hafta1_MertKarakaya.Helpers
                 return "Kredi Tutarına negatif değer girilemez.";
             }
             return null;
+        }
+        public static string clearDotandCommainString(string data)
+        {
+            data = data.Replace(",", "");
+            data = data.Replace(".", "");
+            return data;
         }
     }
 }
