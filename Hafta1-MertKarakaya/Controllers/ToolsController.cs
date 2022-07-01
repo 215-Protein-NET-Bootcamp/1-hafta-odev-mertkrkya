@@ -42,7 +42,10 @@ namespace Hafta1_MertKarakaya.Controllers
             var vadeMiktari = int.Parse(request.vadeMiktari);
             var anaPara = double.Parse(request.anaPara);
             var calcValue = CalcAlgorithm.OdemePlaniOlustur(vadeMiktari, anaPara);
-            return Ok(new Response(calcValue));
+            if (!calcValue.success)
+                return BadRequest(calcValue);
+            else
+                return Ok(new Response(calcValue));
         }
     }
 }

@@ -7,8 +7,6 @@ namespace Hafta1_MertKarakaya.Models
 {
     public class OdemePlani : Tutar
     {
-        public double KKDFOrani { get; set; }
-        public double BSMVOrani { get; set; }
         public double FaizOrani { get; set; }
         public List<OdemeTablosuData> OdemeTablosu { get; set; }
     }
